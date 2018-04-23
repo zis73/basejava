@@ -4,66 +4,60 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
- Resume[] storage = new Resume[10000];
- int size = 0;
+    Resume[] storage = new Resume[10000];
+    int size = 0;
 
- void clear() {
- Arrays.fill(storage,0,size,null);
- size=0;
- }
+    void clear() {
+        Arrays.fill(storage,0,size,null);
+        size=0;
+    }
 
- void save(Resume resume) {
- if(size<storage.length){
- storage[size]=resume;
- size++;
- }
- }
+    void save(Resume resume) {
+        if(size<storage.length){
+            storage[size]=resume;
+            size++;
+        }
+    }
 
- Resume get(String uuid) {
- for (int i = 0; i<size; i++)
- {
+    Resume get(String uuid) {
+        for (int i = 0; i<size; i++)
+        {
 
- if (storage[i].uuid==uuid){
+            if (storage[i].uuid==uuid){
 
- return storage[i];
- }
+                return storage[i];
+            }
 
- }
- return null;
+        }
+        return null;
 
- }
 
- void delete(String uuid) {
- for (int i = 0; i<size; i++)
- {
+    }
 
- if (storage[i].uuid==uuid){
- for (int j = i; j<size; j++){
- storage[i]=storage[i+1];
- 
- }
+    void delete(String uuid) {
+        for (int i = 0; i<size; i++)
+        {
 
- }
+            if (storage[i].uuid==uuid){
+                for (int j = i; j<size; j++){
 
- }
- }
+                }
+                storage[i]=storage[size-1];
+                }
 
- /**
- * [id16226053|@return] array, contains only Resumes in storage (without null)
- */
- Resume[] getAll() {
- Resume[] storage2 = new Resume[size];
- for (int i=0; i<size;i++) {
+        }
+        size--;
+    }
 
- if (storage[i]!= null)
- storage2[i]=storage[i];
+    /**
+     * @return array, contains only Resumes in storage (without null)
+     */
+    Resume[] getAll() {
+        return Arrays.copyOf(storage,size);
+    }
 
- }
- return storage2;
- }
+    int size() {
 
- int size() {
-
- return size;
- }
+        return size;
+    }
 }
