@@ -7,19 +7,19 @@ public class ArrayStorage {
     Resume[] storage = new Resume[10000];
     int size = 0;
 
-    void clear() {
+    void clear() {//Очистка
         Arrays.fill(storage, 0, size, null);
         size = 0;
     }
 
-    void save(Resume resume) {
+    void save(Resume resume) {//Сохранение резюме
         if (size < storage.length) {
             storage[size] = resume;
             size++;
         }
     }
 
-    Resume get(String uuid) {
+    Resume get(String uuid) {//Получение резюме
         for (int i = 0; i < size; i++) {
 
             if (storage[i].uuid == uuid) {
@@ -30,7 +30,7 @@ public class ArrayStorage {
         return null;
     }
 
-    void delete(String uuid) {
+    void delete(String uuid) {//Удаление
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid == uuid) {
                 storage[i] = storage[size - 1];
