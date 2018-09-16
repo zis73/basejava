@@ -21,22 +21,23 @@ public class ArrayStorage {
 
     Resume get(String uuid) {//Получение резюме
         for (int i = 0; i < size; i++) {
-
             if (storage[i].uuid == uuid) {
-
                 return storage[i];
             }
         }
         return null;
     }
 
-    void delete(String uuid) {//Удаление
+    void delete(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (storage[i].uuid == uuid) {
+            if (storage[i].uuid.equals(uuid)) {
                 storage[i] = storage[size - 1];
+                storage[size - 1] = null;
+                size--;
+                return;
             }
         }
-        size--;
+        System.out.println("Резюме " + uuid + " не существует");
     }
 
     /**
