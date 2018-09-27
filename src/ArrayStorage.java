@@ -4,15 +4,21 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    Resume[] storage = new Resume[10000];
-    int size = 0;
+    private Resume[] storage = new Resume[10000];
+    private int size = 0;
 
     void clear() {//Очистка
         Arrays.fill(storage, 0, size, null);
         size = 0;
     }
 
+    void update(Resume resume) {
+        //TODO check if resume  present
+        
+    }
+
     void save(Resume resume) {//Сохранение резюме
+        //TODO check if resume not present
         if (size < storage.length) {
             storage[size] = resume;
             size++;
@@ -31,6 +37,7 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {//Удаление
+        //TODO check if resume present
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid == uuid) {
                 storage[i] = storage[size - 1];
@@ -48,5 +55,12 @@ public class ArrayStorage {
 
     int size() {
         return size;
+    }
+
+    void zamena(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (storage[i].uuid.equals(uuid)) {
+            }
+        }
     }
 }
