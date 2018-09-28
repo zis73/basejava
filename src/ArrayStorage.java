@@ -21,8 +21,7 @@ public class ArrayStorage {
         }
     }
 
-    void save(Resume resume) {//Сохранение резюме
-        //TODO check if resume not present
+    void save(Resume resume) {
         if (getIndex(resume.getUuid()) != -1) {
             System.out.println("Ошибка");
         } else if (size >= storage.length) {
@@ -30,23 +29,20 @@ public class ArrayStorage {
         } else {
             storage[size] = resume;
             size++;
-
         }
     }
 
-    Resume get(String uuid) {//Получение резюме
+    Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
             System.out.println("Error");
             return null;
         } else {
             return storage[index];
-
         }
     }
 
-    void delete(String uuid) {//Удаление
-        //TODO check if resume present
+    void delete(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
             System.out.println("Error");
@@ -66,14 +62,12 @@ public class ArrayStorage {
         return size;
     }
 
-    int getIndex(String uuid) {
+    public int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (storage[i].uuid.equals(uuid)) {
+            if (storage[i].getUuid().equals(uuid)) {
                 return i;
-            } else {
-                return -1;
             }
         }
-        return 0;
+        return -1;
     }
 }
