@@ -7,7 +7,7 @@ public class ArrayStorage {
     private Resume[] storage = new Resume[10000];
     private int size = 0;
 
-    void clear() {//Очистка
+    void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
     }
@@ -41,7 +41,6 @@ public class ArrayStorage {
             return storage[index];
         }
     }
-
     void delete(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
@@ -62,7 +61,7 @@ public class ArrayStorage {
         return size;
     }
 
-    public int getIndex(String uuid) {
+    private int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
             if (storage[i].getUuid().equals(uuid)) {
                 return i;
