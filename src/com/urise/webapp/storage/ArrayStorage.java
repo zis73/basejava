@@ -1,3 +1,7 @@
+package com.urise.webapp.storage;
+
+import com.urise.webapp.model.Resume;
+
 import java.util.Arrays;
 
 /**
@@ -7,12 +11,12 @@ public class ArrayStorage {
     private Resume[] storage = new Resume[10000];
     private int size = 0;
 
-    void clear() {
+    public void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
     }
 
-    void update(Resume resume) {
+    public void update(Resume resume) {
         int index = getIndex(resume.getUuid());
         if (index == -1) {
             System.out.println("Error");
@@ -21,7 +25,7 @@ public class ArrayStorage {
         }
     }
 
-    void save(Resume resume) {
+    public void save(Resume resume) {
         if (getIndex(resume.getUuid()) != -1) {
             System.out.println("Ошибка");
         } else if (size >= storage.length) {
@@ -32,7 +36,7 @@ public class ArrayStorage {
         }
     }
 
-    Resume get(String uuid) {
+    public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
             System.out.println("Error");
@@ -41,7 +45,8 @@ public class ArrayStorage {
             return storage[index];
         }
     }
-    void delete(String uuid) {
+
+    public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
             System.out.println("Error");
@@ -53,11 +58,11 @@ public class ArrayStorage {
 
     }
 
-    Resume[] getAll() {
+    public Resume[] getAll() {
         return Arrays.copyOf(storage, size);
     }
 
-    int size() {
+    public int size() {
         return size;
     }
 
