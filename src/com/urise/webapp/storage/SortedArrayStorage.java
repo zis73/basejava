@@ -5,29 +5,15 @@ import com.urise.webapp.model.Resume;
 import java.util.Arrays;
 
 public class SortedArrayStorage extends AbstractArrayStorage {
+
     @Override
-    public void clear() {
+    protected void differ2(int index) {
 
     }
 
     @Override
-    public void update(Resume r) {
+    protected void differ(Resume r, int index) {
 
-    }
-
-    @Override
-    public void save(Resume r) {
-
-    }
-
-    @Override
-    public void delete(String uuid) {
-
-    }
-
-    @Override
-    public Resume[] getAll() {
-        return new Resume[0];
     }
 
     @Override
