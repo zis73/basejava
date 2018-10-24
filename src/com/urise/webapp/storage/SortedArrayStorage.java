@@ -7,12 +7,12 @@ import java.util.Arrays;
 public class SortedArrayStorage extends AbstractArrayStorage {
 
     @Override
-    protected void differ2(int index) {
+    protected void doDelete(int index) {
 
     }
 
     @Override
-    protected void differ(Resume r, int index) {
+    protected void doSave(Resume r, int index) {
 
     }
 
